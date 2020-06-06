@@ -1,5 +1,4 @@
-require '../../../app/models/soc_med/concerns/soc_med_helper'
-
+require 'concerns/soc_med_helper'
 module SocMed
   class Like < ::ApplicationRecord
     include SocMed::SocMedHelper
