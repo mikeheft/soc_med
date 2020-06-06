@@ -1,7 +1,7 @@
 require '../../../app/models/soc_med/concerns/soc_med_helper'
 
 module SocMed
-  class Like < ApplicationRecord
+  class Like < ::ApplicationRecord
     include SocMed::SocMedHelper
 
     belongs_to :target, polymorphic: true
