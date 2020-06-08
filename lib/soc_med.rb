@@ -1,5 +1,9 @@
 require "soc_med/engine"
 
 module SocMed
-  # Your code goes here...
+  mattr_accessor :owner_class
+
+  def self.owner_class
+    @@owner_class.to_s.classify.constantize
+  end
 end
