@@ -7,7 +7,7 @@ module SocMed
     # protect_from_forgery with: :exception
 
     def error_response(error)
-      render json: { status: error.code, message: error.message }
+      render json: error
     end
   end
 end
