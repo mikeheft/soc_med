@@ -6,7 +6,7 @@ module SocMed
     def create
       like_service::Create.call(params) do |success, failure|
         success.call {|object| render json: { like: serialized_resource(object, ::Blueprints::Likes::OverviewBlueprint, view: :extended) } }
-        failure.call(&method(:error))
+        failure.call(&method(:error_reponse))
       end
     end
 
