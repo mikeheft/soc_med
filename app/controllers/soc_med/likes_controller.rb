@@ -1,11 +1,12 @@
 require 'soc_med/services/likes/create'
 require 'soc_med/services/likes/destroy'
+require 'blueprints/likes/overview_blueprint'
 
 module SocMed
   class LikesController < ApplicationController
     def create
       like_service::Create.call(params) do |success, failure|
-        success.call(&method(:object))
+        success.call {|object| render json: { like: serialized_resource(object, ::Likes::OverviewBlueprint, view: :extended) } }
         failure.call(&method(:error))
       end
     end
