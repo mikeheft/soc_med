@@ -1,6 +1,6 @@
-require './no_trigger'
-require './success'
-require './failure'
+require 'services/no_trigger'
+require 'services/success'
+require 'services/failure'
 
 module SocMed
   module Services
