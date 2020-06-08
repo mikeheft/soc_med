@@ -17,13 +17,13 @@ module SocMed
     private
 
     def increment_number_of_likes
-      raise_not_implemented_error_if_requried
+      raise_not_implemented_error
 
       update_count(:number_of_likes, :+)
     end
 
     def decrement_number_of_likes
-      raise_not_implemented_error_if_requried
+      raise_not_implemented_error
 
       update_count(:number_of_likes, :-)
     end
