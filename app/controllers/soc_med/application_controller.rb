@@ -1,3 +1,5 @@
+require 'dry_serialization/blueprinter'
+
 module SocMed
   class ApplicationController < ActionController::Base
     include DrySerialization::Blueprinter
