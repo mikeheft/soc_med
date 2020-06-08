@@ -1,3 +1,7 @@
+require '../services/no_trigger'
+require '../services/success'
+require '../services/failure'
+
 module SocMed
   module Services
     class BaseService
