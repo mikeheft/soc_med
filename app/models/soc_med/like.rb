@@ -1,4 +1,5 @@
 require_relative './concerns/soc_med_helper'
+
 module SocMed
   class Like < ::ApplicationRecord
     include Concerns::SocMedHelper

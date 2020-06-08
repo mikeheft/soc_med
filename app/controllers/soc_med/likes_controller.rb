@@ -1,5 +1,6 @@
 require 'soc_med/services/likes/create'
 require 'soc_med/services/likes/destroy'
+require 'blueprints/likes/overview_blueprint'
 
 module SocMed
   class LikesController < ApplicationController
