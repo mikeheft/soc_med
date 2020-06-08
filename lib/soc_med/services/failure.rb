@@ -3,11 +3,11 @@ module SocMed
     class Failure
       attr_reader :error
 
-      def initialize(e)
+      def initialize(error)
         @error = error
       end
 
-      def call(error)
+      def call(&block)
         yield(error)
       end
 
