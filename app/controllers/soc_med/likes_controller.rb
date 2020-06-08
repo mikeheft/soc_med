@@ -6,7 +6,7 @@ module SocMed
   class LikesController < ApplicationController
     def create
       like_service::Create.call(like_params) do |success, failure|
-        success.call {|object| render json: { like: serialized_resource(object, ::Likes::OverviewBlueprint) } }
+        success.call { |object| success_response(like: serialized_resource(object, ::Likes::OverviewBlueprint)) }
         failure.call(&method(:error_response))
       end
     end
