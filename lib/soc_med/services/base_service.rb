@@ -1,14 +1,13 @@
 module SocMed
   module Services
     class BaseService
-      attr_reader :user, :params
+      attr_reader :params
 
       def self.call(params, &block)
-        new(user, params).call(&block)
+        new( params).call(&block)
       end
 
-      def initialize(user, params)
-        @user = user
+      def initialize(params)
         @params = params
       end
 
