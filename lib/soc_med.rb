@@ -1,5 +1,4 @@
 require "soc_med/engine"
-require 'blueprinter/base'
 require 'soc_med/concerns/likeable'
 require 'soc_med/concerns/followable'
 require 'soc_med/concerns/blockable'
