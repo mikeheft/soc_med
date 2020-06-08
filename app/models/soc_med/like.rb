@@ -7,7 +7,7 @@ module SocMed
     belongs_to :owner, polymorphic: true
 
     before_validation :raise_already_liked_error_if_required, on: :create
-    before_validation :raise_not_implemented_error_if_required, on: :create
+    before_validation :raise_not_implemented_error, on: :create
     before_commit :increment_number_of_likes, on: :create
     before_destroy :decrement_number_of_likes
 

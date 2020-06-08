@@ -2,7 +2,7 @@ module SocMed
   module Concerns
     module SocMedHelper
 
-      def raise_not_implemented_error_if_required
+      def raise_not_implemented_error
         raise NotImplementedError unless target.respond_to?("number_of_#{self.class.to_s.underscore.split('/')[-1].pluralize}")
       end
 
