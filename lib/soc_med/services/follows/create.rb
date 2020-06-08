@@ -1,4 +1,4 @@
-require_relative '../base_service'
+require_relative './follow_base'
 
 module SocMed
   module Services
@@ -20,7 +20,6 @@ module SocMed
 
           return followed_object if followed_object.save!
         end
-
 
       end
     end

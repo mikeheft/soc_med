@@ -37,9 +37,11 @@ that you want those models/functionality, you can simply rerun the above command
 # config/routes.rb
 
 Rails.application.routes.draw do
-    mount SocMed::Engine => '/soc_med'
+  mount SocMed::Engine => '/soc_med'
 end
 ```
+
+  - The Services used to create the social media objects, are available if you do not wish to use the engine's controllers through the `mount` method.
 
 #### Include the relevant modules
 
@@ -112,6 +114,28 @@ With `"like"` being substituted for the relevant `SocMed` module: `like, follow,
        - `/blocks`
      - Report
        - `/reports`
+   -  The return for each is serialized json, with the top level kep changing depending on the object you're creating
+    
+```json
+{
+    "message": nil,
+    "like": {
+        "owner_id: 1,
+        "owner_type": "user",
+        "target_type": "item',
+        "target_id": 1
+    }
+}
+```
+
+For errors, the return will be formatted as:
+```json
+{
+  "message": "Error message/object"
+}
+``` 
+
+
 
 
 

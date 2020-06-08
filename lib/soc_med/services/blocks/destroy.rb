@@ -16,7 +16,7 @@ module SocMed
         private
 
         def destroy_blocked_object
-          return { destroyed: true } if blocked_object.destroy!
+          return { destroyed: true } if block.destroy!
 
           { destroyed: false }
         end

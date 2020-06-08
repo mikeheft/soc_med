@@ -1,9 +1,9 @@
-require_relative '../base_service'
+require_relative './report_base'
 
 module SocMed
   module Services
     module Reports
-      class Create < BaseService
+      class Create < ReportBase
 
         def call(&block)
           reported_object = create_reported_object
@@ -20,7 +20,6 @@ module SocMed
 
           return reported_object if reported_object.save!
         end
-
 
       end
     end

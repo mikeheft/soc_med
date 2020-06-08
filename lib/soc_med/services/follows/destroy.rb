@@ -1,9 +1,9 @@
-require_relative '../base_service'
+require_relative './follow_base'
 
 module SocMed
   module Services
     module Follows
-      class Destroy < BaseService
+      class Destroy < FollowBase
 
         def call(&block)
           followed_object = destroy_followed_object
@@ -16,7 +16,7 @@ module SocMed
         private
 
         def destroy_followed_object
-          return { destroyed: true } if followed_object.destroy!
+          return { destroyed: true } if follow.destroy!
 
           { destroyed: false }
         end
