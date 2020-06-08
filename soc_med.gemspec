@@ -32,6 +32,7 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "rails", "~> 6.0.3", ">= 6.0.3.1"
   spec.add_dependency 'dry_serialization'
+  spec.add_dependency 'blueprinter'
 
   spec.add_development_dependency "sqlite3"
 end
