@@ -25,10 +25,7 @@ module SocMed
       private
 
       def target
-        target = params[:target_type].classify.constantize.find_by(id: params[:target_id])
-        raise ActiveRecord::RecordNotFound unless target
-
-        target
+        raise NotImplementedError
       end
 
       def owner
