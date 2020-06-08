@@ -3,7 +3,7 @@ module SocMed
     module SocMedHelper
 
       def raise_not_implemented_error_if_required
-        raise NotImplementedError unless target.respond_to?(:number_of_follows)
+        raise NotImplementedError unless target.respond_to?("number_of_#{self.class.to_s.underscore.split('/')[-1].pluralizee}")
       end
 
       def update_count(attribute, operator)
