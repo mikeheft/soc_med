@@ -13,8 +13,8 @@ module SocMed
 
     def destroy
       like_service::Destroy.call(like_params) do |success, failure|
-        success.call(&method(:object))
-        failure.call(&method(:error))
+        success.call { { like: { destroyed: true } } }
+        failure.call(&method(:error_response))
       end
     end
 
