@@ -1,7 +1,7 @@
-require 'concerns/soc_med_helper'
+require './concerns/soc_med_helper'
 module SocMed
   class Like < ::ApplicationRecord
-    include SocMed::SocMedHelper
+    include SocMedHelper
 
     belongs_to :target, polymorphic: true
     belongs_to :owner, polymorphic: true
