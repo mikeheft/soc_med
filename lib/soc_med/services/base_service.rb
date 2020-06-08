@@ -29,10 +29,7 @@ module SocMed
       end
 
       def owner
-        owner = SocMed.owner_class.find_by(id: params[:owner_id])
-        raise ActiveRecord::RecordNotFound unless owner
-
-        owner
+        raise NotImplementedError
       end
 
     end

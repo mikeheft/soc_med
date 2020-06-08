@@ -23,8 +23,21 @@ module SocMed
         end
 
         def target_info
-          return params[:like][:target_type], params[:like][:target_id] if params[:like]
+          return params[:like][:target_type], params[:like][:target_id] unless params[:like].nil?
           return params[:target_type], params[:target_id]
+        end
+
+        def owner
+          owner_type, owner_id = owner_info
+          owner = SocMed.owner_class.find_by(id: owner_id)
+          raise ActiveRecord::RecordNotFound unless owner
+
+          owner
+        end
+
+        def owner_info
+          return params[:like][:owner_type], params[:like][:owner_id] unless params[:like].nil?
+          return params[:owner_type], params[:owner_id]
         end
 
       end
