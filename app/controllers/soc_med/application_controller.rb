@@ -7,7 +7,7 @@ module SocMed
     # protect_from_forgery with: :exception
 
     def error_response(error)
-      default_response = default_response(error, nil)
+      default_response = default_response(error)
       render json: default_response
     end
 
