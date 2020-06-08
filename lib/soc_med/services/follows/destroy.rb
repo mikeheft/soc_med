@@ -9,7 +9,7 @@ module SocMed
           followed_object = destroy_followed_object
 
           yield(Success.new(followed_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError, SocMed::Follows::AlreadyExistsError, StandardError => e
+        rescue ActiveRecord::RecordNotFound, SocMed::Follows::AlreadyExistsError, StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 

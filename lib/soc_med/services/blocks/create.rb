@@ -9,7 +9,7 @@ module SocMed
           blocked_object = create_blocked_object
 
           yield(Success.new(blocked_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError, SocMed::Blocks::AlreadyExistsError, StandardError => e
+        rescue ActiveRecord::RecordNotFound, SocMed::Blocks::AlreadyExistsError, StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 

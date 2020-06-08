@@ -9,7 +9,7 @@ module SocMed
           reported_object = create_reported_object
 
           yield(Success.new(reported_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError, SocMed::Reports::AlreadyExistsError, StandardError => e
+        rescue ActiveRecord::RecordNotFound, SocMed::Reports::AlreadyExistsError, StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 

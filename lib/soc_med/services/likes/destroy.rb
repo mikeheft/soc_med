@@ -17,7 +17,7 @@ module SocMed
 
         def like
           like = owner.likeable_objects.find_by(target: target)
-          raise ActiveRecord::NotFoundError unless like
+          raise ActiveRecord::RecordNotFound unless like
 
           like
         end

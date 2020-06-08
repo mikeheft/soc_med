@@ -9,7 +9,7 @@ module SocMed
           blocked_object = destroy_blocked_object
 
           yield(Success.new(blocked_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError,  StandardError => e
+        rescue ActiveRecord::RecordNotFound,  StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 
