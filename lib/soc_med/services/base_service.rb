@@ -1,3 +1,4 @@
+require 'active_record'
 require 'soc_med/services/no_trigger'
 require 'soc_med/services/success'
 require 'soc_med/services/failure'

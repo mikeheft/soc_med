@@ -9,7 +9,7 @@ module SocMed
           liked_object = like_to_be_destroyed
 
           yield(Success.new(liked_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError, StandardError => e
+        rescue ActiveRecord::RecordNotFound, StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 

@@ -2,6 +2,7 @@ PATH
   remote: .
   specs:
     soc_med (0.1.0)
+      activerecord
       blueprinter
       dry_serialization
       rails (~> 6.0.3, >= 6.0.3.1)
