@@ -118,11 +118,11 @@ With `"like"` being substituted for the relevant `SocMed` module: `like, follow,
     
 ```json
 {
-    "message": nil,
+    "message": null,
     "like": {
         "owner_id: 1,
         "owner_type": "user",
-        "target_type": "item',
+        "target_type": "item",
         "target_id": 1
     }
 }
