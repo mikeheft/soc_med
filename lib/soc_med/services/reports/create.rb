@@ -1,15 +1,15 @@
-require_relative '../base_service'
+require_relative './report_base'
 
 module SocMed
   module Services
     module Reports
-      class Create < BaseService
+      class Create < ReportBase
 
         def call(&block)
           reported_object = create_reported_object
 
           yield(Success.new(reported_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError, SocMed::Reports::AlreadyExistsError, StandardError => e
+        rescue ActiveRecord::RecordNotFound, SocMed::Reports::AlreadyExistsError, StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 
@@ -20,7 +20,6 @@ module SocMed
 
           return reported_object if reported_object.save!
         end
-
 
       end
     end

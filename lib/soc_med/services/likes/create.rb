@@ -1,9 +1,9 @@
-require_relative '../base_service'
+require_relative './like_base'
 
 module SocMed
   module Services
     module Likes
-      class Create < BaseService
+      class Create < LikeBase
 
         def call(&block)
           like = create_like

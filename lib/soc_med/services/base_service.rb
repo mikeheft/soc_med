@@ -1,14 +1,18 @@
+require 'active_record'
+require 'soc_med/services/no_trigger'
+require 'soc_med/services/success'
+require 'soc_med/services/failure'
+
 module SocMed
   module Services
     class BaseService
-      attr_reader :user, :params
+      attr_reader :params
 
       def self.call(params, &block)
-        new(user, params).call(&block)
+        new( params).call(&block)
       end
 
-      def initialize(user, params)
-        @user = user
+      def initialize(params)
         @params = params
       end
 
@@ -21,17 +25,11 @@ module SocMed
       private
 
       def target
-        target = params[:target_type].constantize.find_by(id: params[:target_id])
-        raise ActiveRecord::RecordNotFound unless target
-
-        target
+        raise NotImplementedError
       end
 
       def owner
-        owner = SocMed.owner_class.find_by(id: params[:owner_id])
-        raise ActiveRecord::RecordNotFound unless owner
-
-        owner
+        raise NotImplementedError
       end
 
     end

@@ -7,7 +7,7 @@ module SocMed
 
 
     before_validation :raise_already_liked_error_if_required, on: :create
-    before_validation :raise_not_implemented_error_if_required, on: :create
+    before_validation :raise_not_implemented_error, on: :create
     before_commit :increment_number_of_follows, on: :create
     before_destroy :decrement_number_of_follows
 
@@ -17,13 +17,13 @@ module SocMed
     private
 
     def increment_number_of_follows
-      raise_not_implemented_error_if_required
+      raise_not_implemented_error
 
       update_count(:number_of_follows, :+)
     end
 
     def decrement_number_of_follows
-      raise_not_implemented_error_if_required
+      raise_not_implemented_error
 
       update_count(:number_of_follows, :-)
     end

@@ -1,22 +1,22 @@
-require_relative '../base_service'
+require_relative './report_base'
 
 module SocMed
   module Services
     module Reports
-      class Destroy < BaseService
+      class Destroy < ReportBase
 
         def call(&block)
           reported_object = destroy_reported_object
 
           yield(Success.new(reported_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError, StandardError => e
+        rescue ActiveRecord::RecordNotFound, StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 
         private
 
         def destroy_reported_object
-          return { destroyed: true } if reported_object.destroy!
+          return { destroyed: true } if report.destroy!
 
           { destroyed: false }
         end

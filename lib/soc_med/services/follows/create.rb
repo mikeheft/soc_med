@@ -1,4 +1,4 @@
-require_relative '../base_service'
+require_relative './follow_base'
 
 module SocMed
   module Services
@@ -9,7 +9,7 @@ module SocMed
           followed_object = create_followed_object
 
           yield(Success.new(followed_object), NoTrigger)
-        rescue ActiveRecord::NotFoundError, SocMed::Follows::AlreadyExistsError, StandardError => e
+        rescue ActiveRecord::RecordNotFound, SocMed::Follows::AlreadyExistsError, StandardError => e
           yield(NoTrigger, Failure.new(e))
         end
 
@@ -20,7 +20,6 @@ module SocMed
 
           return followed_object if followed_object.save!
         end
-
 
       end
     end
