@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_05_151450) do
+ActiveRecord::Schema.define(version: 2020_06_18_134040) do
 
   create_table "soc_med_blocks", force: :cascade do |t|
     t.string "target_type", null: false
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 2020_06_05_151450) do
     t.index ["owner_type", "owner_id"], name: "index_soc_med_blocks_on_owner_type_and_owner_id"
     t.index ["target_id", "target_type", "owner_id", "owner_type"], name: "idx_soc_med_blocks_on_target_and_owner", unique: true
     t.index ["target_type", "target_id"], name: "index_soc_med_blocks_on_target_type_and_target_id"
+  end
+
+  create_table "soc_med_comments", force: :cascade do |t|
+    t.string "owner_type", null: false
+    t.integer "owner_id", null: false
+    t.string "target_type", null: false
+    t.integer "target_id", null: false
+    t.text "content", default: "", null: false
+    t.integer "number_of_likes", default: 0
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["number_of_likes"], name: "index_soc_med_comments_on_number_of_likes"
+    t.index ["owner_id", "owner_type", "target_id", "target_type"], name: "idx_soc_med_comments_on_owner_and_target"
+    t.index ["owner_type", "owner_id"], name: "index_soc_med_comments_on_owner_type_and_owner_id"
+    t.index ["target_type", "target_id"], name: "index_soc_med_comments_on_target_type_and_target_id"
   end
 
   create_table "soc_med_follows", force: :cascade do |t|

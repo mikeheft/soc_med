@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner: one
+  target: one
+  number_of_likes: 1
+
+two:
+  owner: two
+  target: two
+  number_of_likes: 1
