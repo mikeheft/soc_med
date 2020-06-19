@@ -24,12 +24,28 @@ module SocMed
 
       private
 
-      def target
+      def target_info
         raise NotImplementedError
       end
 
-      def owner
+      def owner_info
         raise NotImplementedError
+      end
+
+      def target
+        target_type, target_id = target_info
+        target = target_type.classify.constantize.find_by(id: target_id)
+        raise ActiveRecord::RecordNotFound unless target
+
+        target
+      end
+
+      def owner
+        owner_type, owner_id = owner_info
+        owner = SocMed.owner_class.find_by(id: owner_id)
+        raise ActiveRecord::RecordNotFound unless owner
+
+        owner
       end
 
     end
