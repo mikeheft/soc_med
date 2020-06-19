@@ -8,7 +8,7 @@ module SocMed
     protect_from_forgery unless: -> { request.format.json? }
 
     private
-    
+
     def error_response(error)
       default_response = default_response(error)
       render json: default_response

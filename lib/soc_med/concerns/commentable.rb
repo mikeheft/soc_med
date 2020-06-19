@@ -10,7 +10,7 @@ module SocMed
       end
 
       class_methods do
-        def followable(*attributes)
+        def commentable(*attributes)
           attributes = [attributes] unless attributes.is_a?(Array)
 
           attributes.each do |attribute|
@@ -19,7 +19,7 @@ module SocMed
           end
         end
 
-        def follower(*attributes)
+        def commenter(*attributes)
           attributes = [attributes] unless attributes.is_a?(Array)
 
           attributes.each do |attribute|
