@@ -1,9 +1,9 @@
-require_relative './report_base'
+require_relative './base_report'
 
 module SocMed
   module Services
     module Reports
-      class Destroy < ReportBase
+      class Destroy < BaseReport
 
         def call(&block)
           reported_object = destroy_reported_object
