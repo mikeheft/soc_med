@@ -1,9 +1,9 @@
-require_relative './report_base'
+require_relative '../base_service'
 
 module SocMed
   module Services
     module Reports
-      class ReportBase < ReportBase
+      class ReportBase < BaseService
 
         private
 
