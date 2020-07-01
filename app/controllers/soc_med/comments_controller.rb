@@ -3,7 +3,7 @@ require 'soc_med/services/comments/destroy'
 require_relative '../../blueprints/comments/overview_blueprint'
 
 module SocMed
-  class FollowsController < ApplicationController
+  class CommentsController < ApplicationController
     def create
       comment_service::Create.call(params) do |success, failure|
         success.call { |object| success_response(follow: serialized_resource(object, ::Follows::OverviewBlueprint)) }
