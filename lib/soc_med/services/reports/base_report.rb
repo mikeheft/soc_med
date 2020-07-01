@@ -3,7 +3,7 @@ require_relative '../base_service'
 module SocMed
   module Services
     module Reports
-      class ReportBase < BaseService
+      class BaseReport < BaseService
 
         private
 
