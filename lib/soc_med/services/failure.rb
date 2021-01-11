@@ -11,6 +11,10 @@ module SocMed
         yield(error)
       end
 
+      def success?
+        # Kept nil to return false
+      end
+
     end
   end
 end

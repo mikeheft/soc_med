@@ -13,8 +13,8 @@ module SocMed
           attributes = [attributes] unless attributes.is_a?(Array)
 
           attributes.each do |attribute|
-            class_eval "has_many :by_reporting_#{attribute}, -> { order(created_at: :desc) }, class_name: 'SocMed::Report', source: :owner, source_type: '#{attribute.to_s.classify}', foreign_key: :owner_id, dependent: :destroy"
-            class_eval "has_many :reported_#{attribute}, through: :by_reporting_#{attribute}, source: :target, source_type: '#{attribute.to_s.classify}'"
+            class_eval "has_many :by_reporting_#{attribute}, -> { order(created_at: :desc) }, class_name: 'SocMed::Report', foreign_key: :owner_id, dependent: :destroy"
+            class_eval "has_many :reported_#{attribute}, through: :by_reporting_#{attribute}, class_name: '#{attribute.to_s.classify}'"
           end
         end
 
@@ -22,8 +22,8 @@ module SocMed
           attributes = [attributes] unless attributes.is_a?(Array)
 
           attributes.each do |attribute|
-            class_eval "has_many :by_reported_#{attribute}, -> { order(created_at: :desc) }, class_name: 'SocMed::Report', source: :target, source_type: '#{attribute.to_s.classify}', foreign_key: :target_id, dependent: :destroy"
-            class_eval "has_many :reported_by_#{attribute}, through: :by_reported_#{attribute}, source: :owner, source_type: '#{attribute.to_s.classify}'"
+            class_eval "has_many :by_reported_#{attribute}, -> { order(created_at: :desc) }, class_name: 'SocMed::Report', foreign_key: :target_id, dependent: :destroy"
+            class_eval "has_many :reported_by_#{attribute}, through: :by_reported_#{attribute}, class_name: '#{attribute.to_s.classify}'"
           end
         end
       end
