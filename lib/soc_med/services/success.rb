@@ -11,6 +11,10 @@ module SocMed
         yield(object)
       end
 
+      def success?
+        true
+      end
+
     end
   end
 end

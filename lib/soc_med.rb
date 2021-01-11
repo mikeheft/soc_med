@@ -11,11 +11,17 @@ require 'soc_med/services/reports/create'
 require 'soc_med/services/reports/destroy'
 require 'soc_med/services/blocks/create'
 require 'soc_med/services/blocks/destroy'
+require 'soc_med/configuration'
 
 module SocMed
-  mattr_accessor :owner_class
 
-  def self.owner_class
-    @@owner_class.to_s.classify.constantize
+  class << self
+    attr_accessor :configuration
   end
+
+  def self.configure
+    self.configuration || Configuration.new
+    yield(configuration)
+  end
+
 end

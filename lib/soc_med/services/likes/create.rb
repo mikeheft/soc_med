@@ -10,7 +10,7 @@ module SocMed
 
           yield(Success.new(like), NoTrigger)
         rescue SocMed::Likes::AlreadyExistsError, StandardError => e
-          yield(NoTrigger, Failure.new(e))
+          handle_error(e)
         end
 
         private

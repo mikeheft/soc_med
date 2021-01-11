@@ -28,8 +28,8 @@ module SocMed
         end
 
         def owner
-          owner_type, owner_id = owner_info
-          owner = SocMed.owner_class.find_by(id: owner_id)
+          _owner_type, owner_id = owner_info
+          owner = owner_class.find_by(id: owner_id)
           raise ActiveRecord::RecordNotFound unless owner
 
           owner
