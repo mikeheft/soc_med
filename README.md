@@ -23,7 +23,7 @@ $ gem install soc_med
 
 After installing the gem in your application, you need to copy the migrations from the gem to your application:
 ```bash
-$ rails soc_med:install:migrations
+$ rails g soc_med:install
 ```
 
 Once the migrations are copied, you can delete any that you do not currently need in your application. If you later decide
